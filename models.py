@@ -1,9 +1,21 @@
 from django.db import models
-from alfuhigi.models import ContentTypeAbstract, CreateAbstract
+from django.contrib.contenttypes.models
+from django.contrib.contenttypes.models import ContentType
+from django.contrib.contenttypes.fields import (GenericForeignKey,
+                                                GenericRelation)
 # Create your models here.
 
 
 class Marker(ContentTypeAbstract, CreateAbstract):
+	content_type = models.ForeignKey(ContentType, null=True, blank=True, on_delete=models.SET_NULL,)
+    object_id = models.PositiveIntegerField(null=True, blank=True)
+    content_object = GenericForeignKey('content_type', 'object_id')
+    create_by = models.ForeignKey(
+                        settings.AUTH_USER_MODEL, null=True, blank=True,
+                        related_name="%(app_label)s_%(class)s_create_by",
+                        on_delete=models.SET_NULL,)
+    create_at = models.DateTimeField(auto_now_add=True)
+    update_at = models.DateTimeField(auto_now=True, null=True, blank=True)
     name = models.CharField(max_length=100, null=True, blank=True)
     descr = models.CharField(max_length=100, null=True, blank=True)
     lat = models.CharField(max_length=100,)
