@@ -1,4 +1,4 @@
 from django.contrib import admin
-from .models import Marker
+from .models import Fmrk
 # Register your models here.
-admin.site.register(Marker)
+admin.site.register(Fmrk)

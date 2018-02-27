@@ -4,7 +4,7 @@ from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes.fields import GenericForeignKey
 
 
-class Marker(models.Model):
+class Fmrk(models.Model):
     content_type = models.ForeignKey(
         ContentType,
         null=True,

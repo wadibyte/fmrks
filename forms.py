@@ -1,11 +1,11 @@
 from django import forms
-from .models import Marker
+from .models import Fmrk
 
 
 class MarkerModelForm(forms.ModelForm):
 
     class Meta:
-        model = Marker
+        model = Fmrk
         exclude = ['create_by', 'content_type', 'object_id']
 
 

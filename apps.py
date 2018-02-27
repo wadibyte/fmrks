@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class MarkersConfig(AppConfig):
-    name = 'markers'
+class FmrksConfig(AppConfig):
+    name = 'fmrks'
